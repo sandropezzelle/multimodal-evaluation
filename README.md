@@ -11,23 +11,23 @@ Word Representation Learning in Multimodal Pre-Trained Transformers: An Intrinsi
 
 3. download the similarity/relatedness benchmarks used in our experiments [RG65, MEN, SIMLEX999, WORDSIM353,](https://edatos.consorciomadrono.es/file.xhtml?persistentId=doi:10.21950/AQ1CVX/7DHDQW&version=2.2) [SIMVERB3500](https://github.com/JoonyoungYi/datasets/tree/master/simverb3500) and save them locally
 
+4. concatenate annotations from VICO + COCO (hence, VICO) and, for each word in the concatenated benchmarks, compute its frequency in VICO
+
+- 2300 words (out of 2453) are found in VICO, i.e., have frequency >= 1. Frequency distribution: [freq_vocab_2300_VICO.txt](stats/freq_vocab_2300_VICO.txt)
+
+6. filter, among the total 7917 word pairs, the ones that have both words found in VICO (i.e., in the 2300-item list)
+
+- 7194 word pairs satisfy the constraint. Use these pairs as the **filtered banchmarks**, which can be found in [benchmarks_filtered](benchmarks_filtered)
+- 2278 unique words make up these pairs. Use this vocabulary as the **filtered vocabulary**, which can be found in [data/unique-words-filtered-2278.txt](data/unique-words-filtered-2278.txt)
+
+7. use filtered vocabulary to extract samples from VICO (and corresponding image indexes) containing at least one word in it while keeping the size of the dataset computationally tractable
+
+- our **dataset** including 113708 samples: [COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle](data/COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle)
+- our corresponding **indexes**: [COCO-VIST-final.txt_INDEXES_100.filter_size=2278](data/COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle)
+
+
 ***
 
-4. obtain vocabulary (unique words) of concatenated benchmarks (2453 words)
-
-5. concatenate annotations from COCO + VIST (hence, VICO) and compute frequency of each V in vocabulary in it
-
-- 2278 words have frequency >= 1; this set makes up our filtered vocabulary
-- our filtered vocabulary can be found in [data/unique-words-filtered-2278.txt](data/unique-words-filtered-2278.txt)
-
-6. filter the benchmarks based on our filtered vocabulary, i.e., only keep pairs whose words are both in VICO, and save them in .json format with sim/rel scores ranging from 0 to 1
-
-- the five filtered benchmarks in .json format, including 7194 word pairs in total, can be found in [benchmarks_filtered](benchmarks_filtered)
-
-7. extract (1) N samples from VICO such as all words in targeted vocabulary are present at least once (we obtained a subset of 113708, that we refer to as dataset) and (2) the indexes of the corresponding images
-
-- our dataset: [COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle](data/COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle)
-- our indexes: [COCO-VIST-final.txt_INDEXES_100.filter_size=2278](data/COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle)
 
 8. use the indexes to extract the subset of images from VICO included in the dataset (we obtain 80295 unique images)
 
