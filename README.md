@@ -73,8 +73,11 @@ To do so, you can use `rsync -a /this/version/volta/ /source/version/volta/` (mi
 
 5b. repeat (5) for Wikipedia to compare visually-grounded with non-visually-grounded data. [here](https://storage.googleapis.com/lateral-datadumps/wikipedia_utf8_filtered_20pageviews.csv.gz) you can download Wikipedia data 
 
+
+<!---
 	- Our **WIKI dataset** including 127246 samples: [wikipedia_utf8_filtered_20pageviews.csv_stratified_SENTS_100.filter_size=2278.pickle](data/wikipedia_utf8_filtered_20pageviews.csv_stratified_SENTS_100.filter_size=2278.pickle)
 	- Our corresponding **WIKI indexes**: [wikipedia_utf8_filtered_20pageviews.csv_INDEXES_100.filter_size=2278.txt](data/wikipedia_utf8_filtered_20pageviews.csv_INDEXES_100.filter_size=2278.txt)
+-->
 
 6. obtain contextualized vectors for both our **dataset** and **WIKI dataset** by running `Contextual2Static` scripts **TBD**
 
