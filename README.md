@@ -5,7 +5,7 @@ Word Representation Learning in Multimodal Pre-Trained Transformers: An Intrinsi
 
 Code and data presented in:
 
-1) Pezzelle, Takmaz and Fernández (2021). [Word Representation Learning in Multimodal Pre-Trained Transformers: An Intrinsic Evaluation](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00443/108935/Word-Representation-Learning-in-Multimodal-Pre). TACL
+- Pezzelle, Takmaz and Fernández (2021). [Word Representation Learning in Multimodal Pre-Trained Transformers: An Intrinsic Evaluation](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00443/108935/Word-Representation-Learning-in-Multimodal-Pre). TACL
 
 **Abstract**
 This study carries out a systematic intrinsic evaluation of the semantic representations learned by state-of-the-art pre-trained multimodal Transformers. These representations are claimed to be task-agnostic and shown to help on many downstream language-and-vision tasks. However, the extent to which they align with human semantic intuitions remains unclear. We experiment with various models and obtain static word representations from the contextualized ones they learn. We then evaluate them against the semantic judgments provided by human speakers. In line with previous evidence, we observe a generalized advantage of multimodal representations over language- only ones on concrete word pairs, but not on abstract ones. On the one hand, this confirms the effectiveness of these models to align language and vision, which results in better semantic representations for concepts that are grounded in images. On the other hand, models are shown to follow different representation learning patterns, which sheds some light on how and when they perform multimodal integration.
@@ -42,7 +42,7 @@ Before starting, these repos need to be cloned and built correctly following the
 
 Then, the folders in this repo corresponding to each of the repos, e.g., volta, should be merged with the source ones. 
 
-To do so, you can use rsync -a /this/version/volta/ /source/version/volta/ (mind the trailing slash!). This way, some new files will be added to the source repos in the correct position
+To do so, you can use `rsync -a /this/version/volta/ /source/version/volta/` (mind the trailing slash!). This way, the files needed to reproduce our experiments will be added to the source repos in the correct position
 
 
 ***
@@ -71,15 +71,15 @@ To do so, you can use rsync -a /this/version/volta/ /source/version/volta/ (mind
 	- Our **dataset** including 113708 samples: [COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle](data/COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle)
 	- Our corresponding **indexes**: [COCO-VIST-final.txt_INDEXES_100.filter_size=2278.txt](data/COCO-VIST-final.txt_INDEXES_100.filter_size=2278.txt)
 
-5b. repeat (5) for Wikipedia to compare visually-grounded with non-visually-grounded data. Wikipedia data can be downloaded [here](https://storage.googleapis.com/lateral-datadumps/wikipedia_utf8_filtered_20pageviews.csv.gz):
+5b. repeat (5) for Wikipedia to compare visually-grounded with non-visually-grounded data. Wikipedia data can be downloaded [here](https://storage.googleapis.com/lateral-datadumps/wikipedia_utf8_filtered_20pageviews.csv.gz)
 
 	- Our **WIKI dataset** including 127246 samples: [wikipedia_utf8_filtered_20pageviews.csv_stratified_SENTS_100.filter_size=2278.pickle](data/wikipedia_utf8_filtered_20pageviews.csv_stratified_SENTS_100.filter_size=2278.pickle)
 	- Our corresponding **WIKI indexes**: [wikipedia_utf8_filtered_20pageviews.csv_INDEXES_100.filter_size=2278.txt](data/wikipedia_utf8_filtered_20pageviews.csv_INDEXES_100.filter_size=2278.txt)
 
-6. obtain contextualized vectors for both our **dataset** and **WIKI dataset** by running bommassani-based scripts 
+6. obtain contextualized vectors for both our **dataset** and **WIKI dataset** by running `Contextual2Static` scripts **TBD**
 
-	- Our dataset, contextualized vectors: **external link to them** (contextualized.pickle) (1.2GB)
-	- WIKI dataset, contextualized vectors: **external link to them** (contextualized.pickle) (1.2GB)
+	- Our dataset, contextualized vectors: **TBD: add external link to them** (contextualized.pickle) (1.2GB)
+	- WIKI dataset, contextualized vectors: **TBD: add external link to them** (contextualized.pickle) (1.2GB)
 
 7. use contextualized vectors to obtain correlation results for both our **dataset** and **WIKI dataset**
 
@@ -98,7 +98,7 @@ To do so, you can use rsync -a /this/version/volta/ /source/version/volta/ (mind
 
 3. extract visual features for these 80295 images using Faster R-CNN with a ResNet-101 backbone:
 
-- git clone py-bottom-up-attention
+- `git clone py-bottom-up-attention`
 - build it
 - use scripts in [py-bottom-up-attention/demo](../py-bottom-up-attention/demo) to extract features .tsv format
 - you obtain (1) MMdata/coco-imgs-features.tsv (15 GB) and (2) MMdata/vist-imgs-features.tsv (15 GB): **TBD: link to download them**
@@ -119,6 +119,8 @@ To do so, you can use rsync -a /this/version/volta/ /source/version/volta/ (mind
 - the scripts [convert_sentences_to_json.sh](volta/data/coco_vist/convert_sentences_to_json.sh) and [convert_sentences_to_json.py](volta/data/coco_vist/convert_sentences_to_json.py) can be used for that
 - you will obtain the file [coco-vist_ann.jsonl](data/coco-vist_ann.jsonl)
 
+
+6. for each multimodal model, obtain pooled representations for all layers by running `get_representations_all.py`. This can be done in one go by running the model-specific scripts; e.g., for LXMERT: `test_lxmert_loop.sh` 
 
 ***
 

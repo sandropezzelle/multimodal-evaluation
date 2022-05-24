@@ -5,11 +5,11 @@ TASK0:
   loss: CrossEntropyLoss
   process: retrieval
   task_id: 0
-  dataroot: /project/dmg_data/MMdata
-  features_h5path1: /project/dmg_data/MMdata/imgfeats/volta/coco-vist_feat.lmdb
+  dataroot: /volta/data
+  features_h5path1: /volta/data/coco_vist/coco-vist_feat.lmdb
   features_h5path2: ''
   train_annotations_jsonpath: ''
-  val_annotations_jsonpath: /project/dmg_data/MMdata/coco-vist_ann.jsonl
+  val_annotations_jsonpath: /volta/data/coco_vist/coco-vist_ann.jsonl
   max_seq_length: 512
   max_region_num: 36
   batch_size: 64
@@ -40,19 +40,12 @@ TASK8:
   loss: CrossEntropyLoss
   process: retrieval
   task_id: 8
-  dataroot: /project/dmg_data/MMdata 
-  # /project/dmg_data/data-volta/flickr30k
-  # datasets/flickr30k
-  features_h5path1: /project/dmg_data/MMdata/imgfeats/volta/coco-vist_feat.lmdb 
-  # /project/dmg_data/data-volta/flickr30k/resnet101_faster_rcnn_genome_imgfeats/volta/flickr30k_feat.lmdb 
-  # datasets/flickr30k/resnet101_faster_rcnn_genome_imgfeats/volta/flickr30k_feat.lmdb
+  dataroot: /volta/data
+  features_h5path1: /volta/data/coco_vist/coco-vist_feat.lmdb
   features_h5path2: ''
   train_annotations_jsonpath: ''
-  val_annotations_jsonpath: /project/dmg_data/MMdata/coco-vist_ann1000.jsonl 
-  # /project/dmg_data/data-volta/flickr30k/annotations/test_ann.jsonl
-  # datasets/flickr30k/annotations/test_ann.jsonl
-  max_seq_length: 512 # was 38
-  # here I can have max_seq of VIST
+  val_annotations_jsonpath: /volta/data/coco_vist/coco-vist_ann.jsonl
+  max_seq_length: 512
   max_region_num: 36
   batch_size: 64
   train_split: ''
