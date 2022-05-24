@@ -2,7 +2,29 @@
 Word Representation Learning in Multimodal Pre-Trained Transformers: An Intrinsic Evaluation
 
 
-![diagram](mm_tacl_image.pdf)
+
+Code and data presented in:
+
+1) Pezzelle, Takmaz and Fernández (2021). [Word Representation Learning in Multimodal Pre-Trained Transformers: An Intrinsic Evaluation](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00443/108935/Word-Representation-Learning-in-Multimodal-Pre). TACL
+
+**Abstract**
+This study carries out a systematic intrinsic evaluation of the semantic representations learned by state-of-the-art pre-trained multimodal Transformers. These representations are claimed to be task-agnostic and shown to help on many downstream language-and-vision tasks. However, the extent to which they align with human semantic intuitions remains unclear. We experiment with various models and obtain static word representations from the contextualized ones they learn. We then evaluate them against the semantic judgments provided by human speakers. In line with previous evidence, we observe a generalized advantage of multimodal representations over language- only ones on concrete word pairs, but not on abstract ones. On the one hand, this confirms the effectiveness of these models to align language and vision, which results in better semantic representations for concepts that are grounded in images. On the other hand, models are shown to follow different representation learning patterns, which sheds some light on how and when they perform multimodal integration.
+
+![diagram](mm_tacl_image.png)
+
+```
+@article{pezzelle2021word,
+  title={Word Representation Learning in Multimodal Pre-Trained Transformers: An Intrinsic Evaluation},
+  author={Pezzelle, Sandro and Takmaz, Ece and Fern{\'a}ndez, Raquel},
+  journal={Transactions of the Association for Computational Linguistics},
+  volume={9},
+  pages={1563--1579},
+  year={2021},
+  publisher={MIT Press}
+}
+```
+
+
 
 
 ***
@@ -49,7 +71,7 @@ To do so, you can use rsync -a /this/version/volta/ /source/version/volta/ (mind
 	- Our **dataset** including 113708 samples: [COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle](data/COCO-VIST-final.txt_stratified_SENTS_100.filter_size=2278.pickle)
 	- Our corresponding **indexes**: [COCO-VIST-final.txt_INDEXES_100.filter_size=2278.txt](data/COCO-VIST-final.txt_INDEXES_100.filter_size=2278.txt)
 
-5b. repeat (5) for Wikipedia to compare visually-grounded with non-visually-grounded data. Wikipedia data can be downloaded [here](https://storage.googleapis.com/lateral-datadumps/wikipedia_utf8_filtered_20pageviews.csv.gz)
+5b. repeat (5) for Wikipedia to compare visually-grounded with non-visually-grounded data. Wikipedia data can be downloaded [here](https://storage.googleapis.com/lateral-datadumps/wikipedia_utf8_filtered_20pageviews.csv.gz):
 
 	- Our **WIKI dataset** including 127246 samples: [wikipedia_utf8_filtered_20pageviews.csv_stratified_SENTS_100.filter_size=2278.pickle](data/wikipedia_utf8_filtered_20pageviews.csv_stratified_SENTS_100.filter_size=2278.pickle)
 	- Our corresponding **WIKI indexes**: [wikipedia_utf8_filtered_20pageviews.csv_INDEXES_100.filter_size=2278.txt](data/wikipedia_utf8_filtered_20pageviews.csv_INDEXES_100.filter_size=2278.txt)
